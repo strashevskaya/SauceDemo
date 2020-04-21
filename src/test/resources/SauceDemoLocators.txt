@@ -1,0 +1,39 @@
+// login form
+
+        By.id("user-name"));
+        By.id("password"));
+        By.className("btn_action"));
+        By.cssSelector("#user-name"));
+        By.cssSelector("input#password"));
+        By.xpath("//input[@type='text']"));
+        By.xpath("//input[@type='submit']"));
+        By.xpath("//body//input[3]"));
+
+// cart
+
+         By.cssSelector("a[href*='inventory']"));
+         By.className("btn_secondary"));
+         By.xpath("//a[text()='Continue Shopping']"));
+         By.className("btn_action"));
+         By.cssSelector("a[href*='checkout']"));
+         By.xpath("//a[text()='CHECKOUT']"));
+
+// menu items
+
+       By.id("inventory_sidebar_link"));
+       By.xpath("//a[text()='All Items']"));
+       By.cssSelector("#inventory_sidebar_link"));
+       By.id("about_sidebar_link"));
+       By.id("logout_sidebar_link"));
+
+
+// products
+
+       By.className("inventory_details_back_button"));
+       By.xpath("//div[contains(text(),'Sauce Labs Backpack')]/../../..//button[text()='ADD TO CART']");
+       By.xpath("//div[contains(text(),'Sauce Labs Bolt T-Shirt')]/../../..//button[text()='ADD TO CART']");
+       By.xpath("//div[contains(text(),'Sauce Labs Onesie')]/../../..//button[text()='ADD TO CART']");
+       By.xpath("//div[contains(text(),'Sauce Labs Bike Light')]/../../..//button[text()='ADD TO CART']");
+       By.xpath("//div[contains(text(),'Sauce Labs Fleece Jacket')]/../../..//button[text()='ADD TO CART']");
+       By.xpath("//div[contains(text(),'Test')]/../../..//button[text()='ADD TO CART']");
+
