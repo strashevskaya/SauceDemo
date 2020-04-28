@@ -14,6 +14,16 @@ public class SauceDemoTest extends BaseTest {
         cartPage.validateProductsAmount(1);
         cartPage.validateProductDetails("Sauce Labs Fleece Jacket", 1, 49.99);
     }
-
+    @Test
+    public void lockedUserTest(){
+        loginPage.openPage();
+        loginPage.lockedUser("locked_out_user", "secret_sauce");
+        loginPage.errorButton();
     }
+    @Test
+    public void incorrectLoginField(){
+        loginPage.openPage();
+        loginPage.invalidLogin("asddf","12345");
+    }
+}
 
