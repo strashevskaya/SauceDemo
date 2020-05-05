@@ -4,8 +4,9 @@ import org.testng.annotations.Test;
 import pages.CheckoutPage;
 
 public class CheckoutTest extends BaseTest {
+
     @Test
-    public void checkoutPage(){
+    public void verifyCheckOutPage() {
         loginPage.openPage();
         loginPage.login("standard_user", "secret_sauce");
         productsPage.addToCart("Sauce Labs Fleece Jacket");
@@ -16,9 +17,6 @@ public class CheckoutTest extends BaseTest {
         checkoutOverviewPage.verifyQuantityOfItems(1);
         checkoutOverviewPage.finishButton();
         checkoutOverviewPage.checkFinishPage();
-
-
-
     }
 
 }
