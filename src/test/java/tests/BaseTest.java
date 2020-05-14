@@ -1,5 +1,7 @@
 package tests;
 
+import models.CheckoutInputs;
+import models.User;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.AfterMethod;
@@ -17,6 +19,9 @@ public class BaseTest {
     CheckoutPage checkoutPage;
     CheckoutOverviewPage checkoutOverviewPage;
     ProductsMenuPage productsMenuPage;
+    FinishPage finishPage;
+    User user = new User("standard_user", "secret_sauce");
+    CheckoutInputs checkoutInputs = new CheckoutInputs("FirstName", "LastName", "220090");
 
     @BeforeMethod
     public void setUp() {
@@ -29,13 +34,14 @@ public class BaseTest {
         checkoutPage = new CheckoutPage(driver);
         checkoutOverviewPage = new CheckoutOverviewPage(driver);
         productsMenuPage = new ProductsMenuPage(driver);
+        finishPage = new FinishPage(driver);
+        User user = new User("standard_user", "secret_sauce");
+
 
     }
 
     @AfterMethod(alwaysRun=true)
     public void closeBrowser() {
         driver.quit();
-
-
     }
     }

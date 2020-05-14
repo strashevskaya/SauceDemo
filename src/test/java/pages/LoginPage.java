@@ -1,7 +1,9 @@
 package pages;
 
+import models.User;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.testng.Assert;
 
 public class LoginPage extends BasePage {
@@ -19,14 +21,21 @@ public class LoginPage extends BasePage {
         super(driver);
     }
 
-    public void openPage() {
+    public LoginPage openPage() {
         driver.get(LOGIN_URL);
+        return this;
     }
 
-     public void login(String userName, String password) {
-        driver.findElement(USERNAME_INPUT).sendKeys(userName);
-        driver.findElement(PASSWORD_INPUT).sendKeys(password);
+    public LoginPage isPageOpened() {
+        wait.until(ExpectedConditions.visibilityOfElementLocated(LOGIN_BUTTON));
+        return this;
+    }
+
+     public LoginPage login(User user) {
+        driver.findElement(USERNAME_INPUT).sendKeys(user.getUserName());
+        driver.findElement(PASSWORD_INPUT).sendKeys(user.getPassword());
         driver.findElement(LOGIN_BUTTON).click();
+        return new LoginPage(driver);
 }
 
      public void lockedUser(String userName, String password) {
@@ -37,11 +46,11 @@ public class LoginPage extends BasePage {
         Assert.assertEquals(actualErrorMessage, errorMessage, "Incorrect message of mistake");
     }
 
-     public void errorButton() {
+     public void clickErrorButton() {
         driver.findElement(ERROR_BUTTON).click();
 }
 
-     public void invalidLogin(String userName, String password) {
+     public void invalidLoginInputs(String userName, String password) {
      driver.findElement(USERNAME_INPUT).sendKeys(userName);
      driver.findElement(PASSWORD_INPUT).sendKeys(password);
      driver.findElement(LOGIN_BUTTON).click();

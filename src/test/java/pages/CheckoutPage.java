@@ -1,5 +1,6 @@
 package pages;
 
+import models.CheckoutInputs;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
@@ -17,23 +18,29 @@ public class CheckoutPage extends BasePage {
     public CheckoutPage(WebDriver driver) {
         super(driver);
     }
-
-    public void openPage(){
+    @Override
+    public CheckoutPage openPage() {
         driver.get(CHECKOUT_URL);
+        return this;
     }
 
-    public void checkoutForm(String firstName, String lastName, String zipCode) {
-        driver.findElement(FIRST_NAME_INPUT).sendKeys(firstName);
-        driver.findElement(LAST_NAME_INPUT).sendKeys(lastName);
-        driver.findElement(ZIP_CODE_INPUT).sendKeys(zipCode);
+    @Override
+    public CheckoutPage isPageOpened() {
+        return this;
     }
 
-    public void cancelButton() {
+    public CheckoutPage checkoutFormInputs(CheckoutInputs checkoutInputs) {
+        driver.findElement(FIRST_NAME_INPUT).sendKeys(checkoutInputs.getFirstName());
+        driver.findElement(LAST_NAME_INPUT).sendKeys(checkoutInputs.getLastName());
+        driver.findElement(ZIP_CODE_INPUT).sendKeys(checkoutInputs.getZipCode());
+        return new CheckoutPage(driver);
+    }
+
+    public void clickCancelButton() {
         driver.findElement(CANCEL_BUTTON).click();
-
     }
 
-    public void continueButton() {
+    public void continueButtonClick() {
         driver.findElement(CONTINUE_BUTTON).click();
     }
 
