@@ -5,9 +5,9 @@ import org.testng.annotations.Test;
 public class ProductsMenuTest extends BaseTest {
 
     @Test
-    public void productsMenu(){
+    public void productsMenu() {
         loginPage.openPage();
-        loginPage.login("standard_user", "secret_sauce");
+        loginPage.login(user);
         productsMenuPage.selectMenu();
         productsMenuPage.verifyAboutLink();
         productsMenuPage.previousPage();
