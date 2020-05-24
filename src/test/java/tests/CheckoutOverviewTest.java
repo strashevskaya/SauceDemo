@@ -13,6 +13,5 @@ public class CheckoutOverviewTest extends BaseTest {
         checkoutPage.checkoutFormInputs(checkoutInputs);
         checkoutPage.continueButtonClick();
         checkoutOverviewPage.clickFinishButton();
-        checkoutOverviewPage.isPageOpened();
     }
 }
